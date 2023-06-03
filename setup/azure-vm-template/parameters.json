@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "value": "eastus"
+            "value": "southeastasia"
         },
         "networkInterfaceName": {
             "value": "devsecops-cloud801"
@@ -56,7 +56,7 @@
         },
         "addressPrefixes": {
             "value": [
-                "10.0.0.0/16"
+                "172.16.0.0/16"
             ]
         },
         "subnets": {
@@ -64,7 +64,7 @@
                 {
                     "name": "default",
                     "properties": {
-                        "addressPrefix": "10.0.0.0/24"
+                        "addressPrefix": "172.16.0.0/24"
                     }
                 }
             ]
