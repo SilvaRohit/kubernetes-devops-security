@@ -28,8 +28,8 @@ pipeline {
               sh 'docker build -t silvaarohit/numeric-app:""GIT_COMMIT"" .'
               sh 'docker push silvaarohit/numeric-app:""GIT_COMMIT""'
             }
+          }
       }
-
       stage('Kubernetes Deployment - DEV') {
         steps {
           withKubeConfig([credentialsId: 'kubeconfig']) {
@@ -40,5 +40,5 @@ pipeline {
       }   
     }
   }
-}
+
 
