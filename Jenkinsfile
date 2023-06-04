@@ -25,15 +25,15 @@ pipeline {
             steps {
               withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
               sh 'printenv' //print the all the jenkins environment variables
-              sh 'docker build -t silvaarohit/numeric-app:""GIT_COMMIT"" .'
-              sh 'docker push silvaarohit/numeric-app:""GIT_COMMIT""'
+              sh 'docker build -t silvaarohit/numeric-app:latest .'
+              sh 'docker push silvaarohit/numeric-app:latest'
             }
           }
       }
       stage('Kubernetes Deployment - DEV') {
         steps {
           withKubeConfig([credentialsId: 'kubeconfig']) {
-            sh "sed -i 's#replace#silvaarohit/numeric-app:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
+            sh "sed -i 's#replace#silvaarohit/numeric-app:latest#g' k8s_deployment_service.yaml"
             sh "kubectl apply -f k8s_deployment_service.yaml"
           }
         }
