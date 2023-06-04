@@ -7,6 +7,7 @@ pipeline {
               sh "mvn clean package -DskipTests=true"
               archive 'target/*.jar' //so that those can be downloaded later
             }
+      }
       
       stage('Unit Test') {
             steps {
@@ -15,3 +16,4 @@ pipeline {
         }   
     }
 }
+
